@@ -12,3 +12,4 @@ C:\Users\PedroOlegário\Desktop\CSharpNew\obj\Debug\net8.0\refint\CSharpNew.dll
 C:\Users\PedroOlegário\Desktop\CSharpNew\obj\Debug\net8.0\CSharpNew.pdb
 C:\Users\PedroOlegário\Desktop\CSharpNew\obj\Debug\net8.0\CSharpNew.genruntimeconfig.cache
 C:\Users\PedroOlegário\Desktop\CSharpNew\obj\Debug\net8.0\ref\CSharpNew.dll
+C:\Users\PedroOlegário\Desktop\CSharpNew\obj\Debug\net8.0\CSharpNew.sourcelink.json
