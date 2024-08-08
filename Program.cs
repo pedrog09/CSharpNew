@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+using System.Text.Json;
 using Bank;
 class Program
 {
@@ -8,6 +9,10 @@ class Program
           var logger = new FileLogger("mylog.txt");
           var account1 = new BankAccount("Fredi", 100, logger);
           var account2 = new BankAccount("Mariana", 300, logger);
+          BankAccount accountt = new BankAccount("Fredii", 100, logger);
+          string json = JsonSerializer.Serialize(accountt);
+
+          Console.WriteLine(json);
 
           List<BankAccount> accounts = new List<BankAccount>()
           {
@@ -46,6 +51,20 @@ class Program
           Func<string, bool> checkName = delegate (string name){ return name == "Fredi";};
           Console.WriteLine(checkName("Mariana"));
 
+          int[] numberss = {1, 4, 8, 10, 12};
+
+          var query = numberss.Where(number => number < 10);
+          var resultQ = query.ToList();
+
+          Console.WriteLine(query.Count());
+
+
+          foreach (var number in resultQ)
+          {
+               Console.WriteLine(number);
+          }
+
+
      }
      static void Run(Func<int, int, int> calc)
      {
@@ -81,19 +100,17 @@ namespace Bank
      }
      }
 
-     class ConsoleLogger : ILogger
-     {
-     }
      interface ILogger
      {
-          void Log(string message)
-          {
-               Console.WriteLine($"LOGGER:{message}");
-          }
+          void Log(string message);
      }
 
      class BankAccount{
-          private string name;
+
+          public string Name
+          {
+               get; private set;
+          }
 
           public decimal Balance
           {
@@ -113,7 +130,7 @@ namespace Bank
                }
 
                this.logger = logger;
-               this.name = name;
+               Name = name;
                Balance = balance;
                
           }
@@ -122,7 +139,7 @@ namespace Bank
           {
                if(amount <= 0)
                {
-                    logger.Log($"Não é possivel depositar {amount} na conta {name}.");
+                    logger.Log($"Não é possivel depositar {amount} na conta {Name}.");
                     return;
                }
 
